@@ -57,20 +57,30 @@ define(['d3'], function(d3) {
 			        .append("g")
 			        .attr("transform", 
 			            "translate(" +(width / 2) + "," + (height / 2 ) + ")");
+
 			var g = svg.selectAll(".arc")
-			.data(pie(data))
-			.enter().append("g")
-			.attr("class", "arc");  
+					.data(pie(data))
+					.enter().append("g")
+					.attr("class", "arc");  
 			 
 			g.append("path")
 			.attr("d", arc)
 			.style("fill", function(d) { return color(d.data[prop]); });
 			 
-			g.append("text")
-			    .attr("transform", function(d) {
-			        return "translate(" + arc.centroid(d) + ")"; })
-			    .style("text-anchor", "middle");
-			 
+			var map = d3.select("body").append("div")
+					.attr("id", "map");
+
+			var p = map.selectAll(".tag")
+					.data(pie(data))
+					.enter().append("p")
+					.attr("class", "tag")
+					.text(function(d) {
+						return d.data[prop];
+					});
+			p.append("span")
+			.style("background-color", function(d) {
+				return color(d.data[prop]);
+			})
 		}
 	}
 

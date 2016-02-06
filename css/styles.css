@@ -41,3 +41,16 @@ th {
 td:nth-child(n+3) {
 	text-align: center;
 }
+svg path {
+	transition: 500ms;
+}
+svg g:hover path:not(:hover) {
+	opacity: .7;
+}
+#map span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 5px;
+}
