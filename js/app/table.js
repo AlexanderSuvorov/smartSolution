@@ -16,7 +16,10 @@ define(['jquery'], function($) {
 			})
 			myTable += "</tbody></table>";
 
-			return myTable
+			$('body').append(myTable);
+
+			this.selectRow();
+
 		},
 		
 		selectRow: function() {

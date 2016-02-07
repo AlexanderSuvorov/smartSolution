@@ -1,11 +1,9 @@
 define(function (require) {
 
 	var data = require('json!employers.json'),
-    	table = require('./table'),
-    	tableHTML = table.getTable(data);
+    	table = require('./table');
 
-    $('body').append(tableHTML);
-    table.selectRow();
+    table.getTable(data);
 
     var pie = require('./pie');
 

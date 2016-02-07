@@ -47,7 +47,7 @@ svg path {
 svg g:hover path:not(:hover) {
 	opacity: .7;
 }
-#map span{
+.map span{
 	display: inline-block;
 	width: 20px;
 	height: 20px;

@@ -2,25 +2,24 @@ define(['d3'], function(d3) {
 	var pieChart = {
 		transformData: function(data, prop) {
 
-			var keyAll = [],
-				keyUnique = [],
-				newData = [],
-				rate = 'rate',
-				count = 0;
+			var propUnique = [],	// array for unique values
+				newData = [],		// outer array for transformed data
+				count = 'count';	// a key containing count of property values 
 
+			// assign each property value equal 
+			// to the number of repetitions of this property
 			data.forEach(function(i) {
-				keyAll.push(i[prop])
+				if ( propUnique[i[prop]] ) propUnique[i[prop]] += 1
+					else propUnique[i[prop]] = 1
 			});
 
-			for (var i = 0; i < keyAll.length; i++) {
-				if (keyUnique[keyAll[i]]) keyUnique[keyAll[i]] += 1
-					else keyUnique[keyAll[i]] = 1
-			}
-
-			for (k = 0; k < Object.keys(keyUnique).length; k++) {
+			// sever key and value from propUnique 
+			// and assign each of them to new properties
+			// and fill the new array
+			for (var k = 0; k < Object.keys(propUnique).length; k++) {
 				newData[k] = [];
-				newData[k][prop] = Object.keys(keyUnique)[k];
-				newData[k][rate] = keyUnique[Object.keys(keyUnique)[k]];
+				newData[k][prop] = Object.keys(propUnique)[k];
+				newData[k][count] = propUnique[Object.keys(propUnique)[k]];
 			}
 		
 		return newData;
@@ -39,7 +38,7 @@ define(['d3'], function(d3) {
 			var color = d3.scale.category10();
 			 
 			// set radius
-			var radius = Math.min(width - 2*margin, height- 2*margin) / 2;
+			var radius = Math.min(width - 2 * margin, height - 2 * margin) / 2;
 			 
 			// create arc with radius
 			var arc = d3.svg.arc()
@@ -48,7 +47,7 @@ define(['d3'], function(d3) {
 			     
 			var pie = d3.layout.pie()
 			    .sort(null)
-			    .value(function(d) { return d.rate; });
+			    .value(function(d) { return d.count; });
 			 
 			var svg = d3.select("body").append("svg")
 			        .attr("class", "axis")
@@ -66,23 +65,22 @@ define(['d3'], function(d3) {
 			g.append("path")
 			.attr("d", arc)
 			.style("fill", function(d) { return color(d.data[prop]); });
-			 
+			
+			// create map
 			var map = d3.select("body").append("div")
-					.attr("id", "map");
+					.attr("class", "map");
 
 			var p = map.selectAll(".tag")
 					.data(pie(data))
 					.enter().append("p")
 					.attr("class", "tag")
-					.text(function(d) {
-						return d.data[prop];
-					});
+					.text(function(d) { return d.data[prop]; });
+
 			p.append("span")
-			.style("background-color", function(d) {
-				return color(d.data[prop]);
-			})
+			.style("background-color", function(d) { return color(d.data[prop]); });
 		}
 	}
 
 	return pieChart;
+
 });
