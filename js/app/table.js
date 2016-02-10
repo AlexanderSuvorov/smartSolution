@@ -2,6 +2,8 @@ define(['jquery'], function($) {
 
 	var Table = {
 		getTable: function(data) {
+			$('body').append('<section id="table"></section>');
+
 			var myTable = "<table><thead>";
 			$.each(data[0], function(head, val) {
 				myTable += '<th>' + head + '</th>'
@@ -16,7 +18,7 @@ define(['jquery'], function($) {
 			})
 			myTable += "</tbody></table>";
 
-			$('body').append(myTable);
+			$('#table').append(myTable);
 
 			this.selectRow();
 
