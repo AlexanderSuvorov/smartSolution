@@ -1,0 +1,10 @@
+[
+  	{"position": "arhitector", "name": "Darth Sidious", "age": 1020, "sex": "m", "project": "Vader"},
+  	{"position": "web-developer", "name": "Darth Vader", "age": 27, "sex": "m", "project": "Death Star"},
+  	{"position": "web-developer", "name": "Padme", "age": 34, "sex": "f", "project": "Incest"},
+  	{"position": "web-developer", "name": "Joda", "age": 217, "sex": "m", "project": "Jedi"},
+  	{"position": "web-developer", "name": "Obi Van", "age": 45, "sex": "m", "project": "Jedi"},
+  	{"position": "html-coder", "name": "Qui-Gon Jinn", "age": 57, "sex": "m", "project": "Jedi"},
+  	{"position": "disigner", "name": "Leia", "age": 37, "sex": "f", "project": "Jedi"},
+  	{"position": "tester", "name": "Han Solo", "age": 26, "sex": "m", "project": "Smuggling"}
+]

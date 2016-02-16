@@ -1,0 +1,10 @@
+[
+  	{"position": "arhitector", "name": "Carolus Haverbeke", "age": 32, "sex": "m", "project": "spaceX"},
+  	{"position": "backend-developer", "name": "Jan Frans Brussel", "age": 25, "sex": "m", "project": "spaceX"},
+  	{"position": "backend-developer", "name": "Emma de Milliano", "age": 27, "sex": "f", "project": "spaceX"},
+  	{"position": "frontend-developer", "name": "Jan van Brussel", "age": 22, "sex": "m", "project": "spaceX"},
+  	{"position": "frontend-developer", "name": "Philibert Haverbeke", "age": 26, "sex": "m", "project": "spaceX"},
+  	{"position": "html-coder", "name": "Pieter de Decker", "age": 26, "sex": "m", "project": "spaceX"},
+  	{"position": "disigner", "name": "Maria de Rycke", "age": 24, "sex": "f", "project": "spaceX"},
+  	{"position": "tester", "name": "Philibert Haverbeke", "age": 26, "sex": "m", "project": "spaceX"}
+]

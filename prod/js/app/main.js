@@ -1,0 +1,1 @@
+define(function(e){e(["json!data/employers.json!bust","./request","./table","./pie"],function(t,a){var i=t,n=e("./table");n.getTable(i);var o=e("./pie");o.drawPie(i,prop="position")})});
